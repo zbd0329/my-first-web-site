@@ -4,37 +4,45 @@
     <title>WEB1 - JavaScript</title>
     <meta charset="utf-8">
     <script>
-    function LinksSetColor(color){
+    var Links = {
+        setColor : function (color){
         var alist = document.querySelectorAll('a');
         var i = 0;
         while (i < alist.length) {
             alist[i].style.color = color;
             i = i + 1
+            }
         }
     }
-    function BodySetColor(color){
+
+
+    var Body = {
+        setColor: function (color){
         document.querySelector('body').style.color = color;
-    }
-    function BodySetBackgroundColor(color){
+        },
+        setBackgroundColor : function (color){
         document.querySelector('body').style.backgroundColor = color;
-        // 이 color부분에서 ()을 써서 코드 오류가 났었음
+
+        }
 
     }
+
+
     function nightDayHandler(self) {
         var target = document.querySelector('body');
         if (self.value === 'night') {
-            BodySetBackgroundColor('black')
-            BodySetColor('white');
+            Body.setBackgroundColor('black')
+            Body.setColor('white');
             self.value = 'day';
-            LinksSetColor('powderblue');
+            Links.setColor('powderblue');
 
 
         } else {
-            BodySetBackgroundColor('white')
-            BodySetColor('black');
+            Body.setBackgroundColor('white')
+            Body.setColor('black');
             self.value = 'night'
 
-            LinksSetColor('blue');
+            Links.setColor('blue');
         }
     }
 
